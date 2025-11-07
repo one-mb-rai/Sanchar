@@ -1,0 +1,27 @@
+<div class="chat-list">
+  <div class="chat-list-header">
+    <h2>Sanchar</h2>
+  </div>
+  <div class="search-container">
+    <input type="text" placeholder="Search or start new chat" class="search-input">
+  </div>
+  <div class="chats-container">
+    <div 
+      *ngFor="let chat of chats" 
+      class="chat-item"
+      [class.active]="selectedChat?.id === chat.id"
+      (click)="selectChat(chat.id)">
+      <div class="chat-avatar">{{ chat.avatar }}</div>
+      <div class="chat-info">
+        <div class="chat-header">
+          <span class="chat-name">{{ chat.name }}</span>
+          <span class="chat-time">{{ formatTime(chat.lastMessageTime) }}</span>
+        </div>
+        <div class="chat-message">
+          <span class="last-message">{{ chat.lastMessage }}</span>
+          <span *ngIf="chat.unreadCount > 0" class="unread-badge">{{ chat.unreadCount }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

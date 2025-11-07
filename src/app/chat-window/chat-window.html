@@ -1,0 +1,43 @@
+<div class="chat-window">
+  <div *ngIf="!selectedChat" class="no-chat-selected">
+    <div class="welcome-container">
+      <h1>Sanchar Web</h1>
+      <p>Send and receive messages</p>
+      <p class="subtitle">Select a chat to start messaging</p>
+    </div>
+  </div>
+  
+  <div *ngIf="selectedChat" class="chat-active">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">{{ selectedChat.avatar }}</div>
+        <div class="chat-details">
+          <h3>{{ selectedChat.name }}</h3>
+          <p>Online</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="messages-container" #messagesContainer>
+      <div 
+        *ngFor="let message of selectedChat.messages" 
+        class="message"
+        [class.message-me]="message.sender === 'me'"
+        [class.message-other]="message.sender === 'other'">
+        <div class="message-bubble">
+          <p class="message-text">{{ message.text }}</p>
+          <div class="message-meta">
+            <span class="message-time">{{ formatMessageTime(message.timestamp) }}</span>
+            <span *ngIf="message.sender === 'me'" class="message-status">
+              <span *ngIf="message.status === 'sent'">✓</span>
+              <span *ngIf="message.status === 'delivered'">✓✓</span>
+              <span *ngIf="message.status === 'read'" class="read-status">✓✓</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <app-message-input (messageSent)="onMessageSent()"></app-message-input>
+  </div>
+</div>
