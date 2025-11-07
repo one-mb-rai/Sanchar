@@ -153,7 +153,7 @@ export class Chat {
     const chatIndex = chats.findIndex(c => c.id === chatId);
     if (chatIndex !== -1) {
       const newMessage: Message = {
-        id: chats[chatIndex].messages.length + 1,
+        id: Date.now(),
         text: text.trim(),
         timestamp: new Date(),
         sender: 'me',
