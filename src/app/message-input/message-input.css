@@ -1,0 +1,66 @@
+.message-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  background-color: #f0f2f5;
+  gap: 10px;
+}
+
+.emoji-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  transition: background-color 0.2s;
+}
+
+.emoji-button:hover {
+  background-color: #e0e0e0;
+}
+
+.input-wrapper {
+  flex: 1;
+}
+
+.message-input {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  font-family: inherit;
+}
+
+.message-input::placeholder {
+  color: #8696a0;
+}
+
+.send-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #008069;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: #006b5a;
+}
+
+.send-button:disabled {
+  background-color: #d0d0d0;
+  cursor: not-allowed;
+}

@@ -1,0 +1,17 @@
+<div class="message-input-container">
+  <div class="emoji-button">😊</div>
+  <div class="input-wrapper">
+    <input 
+      type="text" 
+      [(ngModel)]="messageText"
+      (keypress)="handleKeyPress($event)"
+      placeholder="Type a message"
+      class="message-input">
+  </div>
+  <button 
+    class="send-button"
+    (click)="sendMessage()"
+    [disabled]="!messageText.trim()">
+    ➤
+  </button>
+</div>
